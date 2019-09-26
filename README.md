@@ -110,12 +110,14 @@ exports.users = {
 ### 5. Run API generator script
 
 ```bash
-node ./automator/restAPIGenerator.js ./automator/model_source/Mode.js ./automator/model_source/AnotherMode.js
+$ node ./automator/restAPIGenerator.js ./automator/model_source/Mode.js ./automator/model_source/AnotherMode.js
 ```
 
 ### 6. Before running migration from ./database folder with sequelize cmd you may want to update your migration file for validation and etc.
 
-`sequelize db:migrate`
+```bash
+$ sequelize db:migrate
+```
 
 ### 7. In routes/index.js use the router middleware
 ```js
