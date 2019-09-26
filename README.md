@@ -4,12 +4,12 @@
 ## Supposed project folder structure
 > Note: for the generator script to work, the following folder structure is needed
 
-```
+```bash
 - app
     - controller
-        - <Model_Name>Controller // UserController.js
+        - <Model_Name>Controller # example: UserController.js
     - model
-        - <camel_Plueral_Model_Name> // users.js
+        - <camel_Plueral_Model_Name> # example: users.js
 -  database
     - config
         - config.json
@@ -18,7 +18,7 @@
     - seeders
 - routes
     - api
-        - <camel_Plueral_Model_Name> // users.js
+        - <camel_Plueral_Model_Name> # example: users.js
     - index.js
     - urls.js
 - app.js
@@ -29,7 +29,9 @@
 ### 1. I keep this repo inside the project root under a folder /automator
 
 ### 2. clone this repo under project-root/automator
-`git clone url-to-this-repo ./automator`
+```bash
+$ git clone url-to-this-repo ./automator
+```
 
 ### 3. Git ignore the `automator` folder
 
@@ -42,7 +44,7 @@
     - METHOD_MODEL(S), e.g: POST_USER, GET_USERS, GET_USER
     - API end point: '/api/models/:id'
 
-```
+```js
 exports.users = {
         POST_USER: "/api/users",
         GET_USERS: "/api/users",
@@ -64,7 +66,7 @@ exports.users = {
 - routes[].method options: ['createModel', 'updateModel', 'patchModel', 'getModels', 'getModel', 'deleteModel']
 - For controller model and route (middleware file) you can choose your own folder name
 
-```
+```js
 {
     "models": [
         {
@@ -107,7 +109,7 @@ exports.users = {
 
 ### 5. Run API generator script
 
-```
+```bash
 node ./automator/restAPIGenerator.js ./automator/model_source/Mode.js ./automator/model_source/AnotherMode.js
 ```
 
@@ -116,7 +118,7 @@ node ./automator/restAPIGenerator.js ./automator/model_source/Mode.js ./automato
 `sequelize db:migrate`
 
 ### 7. In routes/index.js use the router middleware
-```
+```js
 const model = require("./api/models");
 router.use(model);
 ```
