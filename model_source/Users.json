@@ -15,9 +15,15 @@
                 {"name": "isMember", "type": "boolean"}
             ],
             "associations": [
+                {
+                    "method": "belongsTo",
+                    "associated_model": "Role",
+                    "as": "role"
+                }
             ],
             "routes": [
                 {"url": "/api/activities", "method": "createModel"},
+                {"url": "/api/activities/:id", "method": "updateModel"},
                 {"url": "/api/activities/:id", "method": "patchModel"},
                 {"url": "/api/activities/", "method": "getModels"},
                 {"url": "/api/activities:id", "method": "getModel"},
