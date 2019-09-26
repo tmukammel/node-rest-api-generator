@@ -35,7 +35,25 @@
 
 ### 4. Create your Source Data Model like below inside the repo folder `automator/model_source`
 
-#### Instructions:
+#### 4.1 Define the API urls:
+
+- In the `./routes/urls.js` file
+- naming conventions
+    - METHOD_MODEL(S), e.g: POST_USER, GET_USERS, GET_USER
+    - API end point: '/api/models/:id'
+
+```
+exports.users = {
+        POST_USER: "/api/users",
+        GET_USERS: "/api/users",
+        GET_USER: "/api/users/:id",
+        PUT_USER: "/api/users/:id",
+        PATCH_USER: "/api/users/:id",
+        DELETE_USER: "/api/users/:id"
+}
+```
+
+#### 4.2 Model Generation Instructions:
 
 - names: {'name': ModelName, 'pleural_name': PleuralModelName}
 - attributes: only {"name": "field_name", "type": "sequelize_type"}
@@ -96,3 +114,11 @@ node ./automator/restAPIGenerator.js ./automator/model_source/Mode.js ./automato
 ### 6. Before running migration from ./database folder with sequelize cmd you may want to update your migration file for validation and etc.
 
 `sequelize db:migrate`
+
+### 7. In routes/index.js use the router middleware
+```
+const model = require("./api/models");
+router.use(model);
+```
+
+That's it. Now you can try your new APIs with postman or similar.
