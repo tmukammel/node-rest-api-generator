@@ -138,16 +138,19 @@ const addModelCRUDFunctions = (file, model) => {
 
     // getModelById()
     functionsCode += (sourceSnippets.dbModel.functions.methods.getModelById.replace(/@{MODEL}/g, model.names.name) + `
+
   `);
 
     // getModel()
     functionsCode += (sourceSnippets.dbModel.functions.methods.getModel.replace(/@{MODEL}/g, model.names.name) + `
+
   `);
 
     // getModels()
     let getModelsSnippet = sourceSnippets.dbModel.functions.methods.getModels.replace(/@{MODEL}/g, model.names.name);
     getModelsSnippet = getModelsSnippet.replace("@{PLEURAL_MODEL}", model.names.pleural_name);
     functionsCode += (getModelsSnippet + `
+
   `);
 
     // createModel()
@@ -161,6 +164,7 @@ const addModelCRUDFunctions = (file, model) => {
         createModelSnippet = createModelSnippet.replace("@{ASSIGN_TO_MODEL}", assignments);
     }
     functionsCode += (createModelSnippet + `
+
   `);
 
     // updateModel()
@@ -169,10 +173,12 @@ const addModelCRUDFunctions = (file, model) => {
         updateModelSnippet = updateModelSnippet.replace("@{ASSIGN_TO_MODEL}", assignments);
     }
     functionsCode += (updateModelSnippet + `
+
   `);
 
     // deleteModel()
     functionsCode += (sourceSnippets.dbModel.functions.methods.deleteModel.replace(/@{MODEL}/g, model.names.name) + `
+
   `);
 
     if (functionsCode.length > 0) {
